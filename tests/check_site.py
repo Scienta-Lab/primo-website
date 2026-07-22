@@ -82,11 +82,16 @@ def main():
             assert parsed.scheme in {"https", "mailto"}, f"Unsafe link scheme: {href}"
 
     assert html.count("COMING SOON") == 2
-    assert "Slack <small>soon</small>" in html
+    assert "<b>Slack</b> soon" in html
     assert "https://www.scientalab.com/" in html
     assert "href=\"#\"" not in html
     assert "Space+Grotesk" in html and "IBM+Plex+Sans" in html and "IBM+Plex+Mono" in html
-    print(f"PASS: {len(parser.ids)} ids, {len(parser.links)} links, PRIMO brand fonts and structural checks passed")
+
+    css = (ROOT / "styles.css").read_text().lower()
+    assert "#4c46e0" not in css, "Deprecated purple accent is still present"
+    assert "#16b3c0" in css and "#f26b43" in css and "#1a1b45" in css
+    assert "border-radius: 999px" not in css, "Pill-heavy styling reintroduced"
+    print(f"PASS: {len(parser.ids)} ids, {len(parser.links)} links, brand fonts, non-purple palette, and structural checks passed")
 
 
 if __name__ == "__main__":
