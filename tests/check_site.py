@@ -53,15 +53,15 @@ def main():
     ]
     for relative in required:
         path = ROOT / relative
-        assert path.exists() and (path.stat().st_size > 0 or path.name == ".nojekyll"), f"Missing/empty: {relative}"
+        assert path.exists() and path.stat().st_size > 0, f"Missing/empty: {relative}"
 
     html = (ROOT / "index.html").read_text()
     parser = SiteParser()
     parser.feed(html)
 
-    assert set(["header", "main", "footer", "nav"]).issubset(parser.landmarks)
+    assert {"header", "main", "footer", "nav"}.issubset(parser.landmarks)
     assert "PRIMO" in "".join(parser.title)
-    assert {"top", "mission", "benchmark", "publication", "participate"}.issubset(parser.ids)
+    assert {"top", "about", "publications", "community", "get-involved"}.issubset(parser.ids)
 
     for image in parser.images:
         assert image.get("alt"), f"Image lacks alt text: {image}"
@@ -80,9 +80,10 @@ def main():
         else:
             assert parsed.scheme in {"https", "mailto"}, f"Unsafe link scheme: {href}"
 
-    assert "Coming soon" in html
+    assert html.count("COMING SOON") == 2
     assert "href=\"#\"" not in html
-    print(f"PASS: {len(parser.ids)} ids, {len(parser.links)} links, {len(parser.images)} image(s), all structural checks passed")
+    assert "Space+Grotesk" in html and "IBM+Plex+Sans" in html and "IBM+Plex+Mono" in html
+    print(f"PASS: {len(parser.ids)} ids, {len(parser.links)} links, PRIMO brand fonts and structural checks passed")
 
 
 if __name__ == "__main__":
