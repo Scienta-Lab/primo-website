@@ -49,6 +49,7 @@ def main():
         "assets/primo-logo.png",
         "assets/primo-banner.png",
         "assets/favicon.svg",
+        "assets/scienta-lab.svg",
         ".github/workflows/pages.yml",
     ]
     for relative in required:
@@ -81,6 +82,8 @@ def main():
             assert parsed.scheme in {"https", "mailto"}, f"Unsafe link scheme: {href}"
 
     assert html.count("COMING SOON") == 2
+    assert "Slack <small>soon</small>" in html
+    assert "https://www.scientalab.com/" in html
     assert "href=\"#\"" not in html
     assert "Space+Grotesk" in html and "IBM+Plex+Sans" in html and "IBM+Plex+Mono" in html
     print(f"PASS: {len(parser.ids)} ids, {len(parser.links)} links, PRIMO brand fonts and structural checks passed")

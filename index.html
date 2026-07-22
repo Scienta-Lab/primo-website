@@ -69,13 +69,14 @@
           <h1 id="hero-title">PRIMO</h1>
           <p class="hero-lead">Open collaboration to bring clarity to evaluations in bioAI, from target discovery to the clinic.</p>
           <div class="hero-actions">
-            <span class="pill pill--muted" aria-disabled="true"><b>HF</b> Hugging Face <small>soon</small></span>
+            <span class="pill pill--muted pill--assay" aria-disabled="true"><b>HF</b> Hugging Face <small>soon</small></span>
             <span class="pill pill--muted" aria-disabled="true">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
               GitHub <small>soon</small>
             </span>
+            <span class="pill pill--muted pill--assay" aria-disabled="true"><b>SL</b> Slack <small>soon</small></span>
             <a class="pill pill--primary" href="https://openreview.net/forum?id=v2SA8gHwqo">Publication</a>
-            <a class="pill pill--outline" href="mailto:karim.elkanbi@scientalab.com?subject=Join%20PRIMO">Join</a>
+            <a class="pill pill--vital" href="mailto:karim.elkanbi@scientalab.com?subject=Join%20PRIMO">Join</a>
           </div>
           <p class="hero-support">Built by an open community of omics researchers, ML scientists, clinicians, and drug developers.</p>
         </div>
@@ -87,19 +88,19 @@
           <h2 id="updates-title">Latest from PRIMO</h2>
         </header>
         <div class="updates-grid">
-          <article id="publications" class="update-card update-card--featured">
+          <article id="publications" class="update-card update-card--featured update-card--signal">
             <div class="card-meta"><time datetime="2026">ICLR 2026 · LMRL</time></div>
             <h3>A Transcriptomic Benchmark for Foundation Models in Immunology and Inflammation</h3>
             <p>Our first multitask benchmark evaluates patient representations under the realistic constraints of immunology and inflammation cohorts.</p>
             <a href="https://openreview.net/forum?id=v2SA8gHwqo">Read the publication</a>
           </article>
-          <article class="update-card">
+          <article class="update-card update-card--assay">
             <div class="card-meta"><span>COMING SOON</span></div>
             <h3>Public benchmark and leaderboard</h3>
             <p>The PRIMO tasks, datasets, baselines, and live leaderboard will be released on Hugging Face.</p>
             <span class="card-status">Hugging Face</span>
           </article>
-          <article class="update-card">
+          <article class="update-card update-card--indigo">
             <div class="card-meta"><span>COMING SOON</span></div>
             <h3>Open evaluation code</h3>
             <p>The evaluation harness, baseline implementations, and contribution workflow will be published on GitHub.</p>
@@ -108,20 +109,22 @@
         </div>
       </section>
 
-      <section id="community" class="panel section-panel" aria-labelledby="community-title">
+      <section id="community" class="panel section-panel panel--assay" aria-labelledby="community-title">
         <header class="section-heading section-heading--compact">
           <h2 id="community-title">Community Contributors</h2>
           <p>PRIMO is initiated by Scienta Lab and is being built as an open, community-driven benchmark. We are welcoming founding contributors from academia, biotech, pharma, and technology.</p>
         </header>
         <div class="affiliations-grid" role="list">
-          <div class="affiliation" role="listitem"><span class="scienta-wordmark">SCIENTA <b>LAB</b></span></div>
+          <a class="affiliation" role="listitem" href="https://www.scientalab.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Scienta Lab">
+            <img src="assets/scienta-lab.svg" alt="Scienta Lab" width="147" height="24" loading="lazy" decoding="async">
+          </a>
           <a class="affiliation affiliation--open" role="listitem" href="mailto:karim.elkanbi@scientalab.com?subject=PRIMO%20founding%20partner"><span>YOUR ORGANIZATION</span><small>Founding partners welcome</small></a>
         </div>
       </section>
 
       <section id="get-involved" class="panel section-panel" aria-labelledby="contribute-title">
         <header class="section-heading">
-          <p class="kicker">Get involved</p>
+          <p class="kicker kicker--vital">Get involved</p>
           <h2 id="contribute-title">Contribute to PRIMO</h2>
           <p>Bring your expertise, datasets, models, or evaluation ideas. We welcome contributions from researchers and practitioners across the drug-development ecosystem.</p>
         </header>
