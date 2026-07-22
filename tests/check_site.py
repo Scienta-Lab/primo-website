@@ -86,7 +86,13 @@ def main():
     assert "https://www.scientalab.com/" in html
     assert "href=\"#\"" not in html
     assert "Space+Grotesk" in html and "IBM+Plex+Sans" in html and "IBM+Plex+Mono" in html
-    print(f"PASS: {len(parser.ids)} ids, {len(parser.links)} links, PRIMO brand fonts and structural checks passed")
+
+    css = (ROOT / "styles.css").read_text().lower()
+    assert "#4c46e0" not in css and "#f26b43" not in css and "#1a1b45" not in css
+    assert "#16b3c0" in css and "#087b84" in css
+    favicon = (ROOT / "assets/favicon.svg").read_text().lower()
+    assert "#4c46e0" not in favicon and "#f26b43" not in favicon
+    print(f"PASS: {len(parser.ids)} ids, {len(parser.links)} links, approved structure, brand fonts, and cyan-only accent checks passed")
 
 
 if __name__ == "__main__":
