@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="PRIMO is an open benchmark initiative evaluating whether omics AI helps develop drugs, from target to clinic.">
+  <meta name="description" content="PRIMO tests whether omics AI can help develop drugs under real patient-level constraints.">
   <meta name="theme-color" content="#1A1B45">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="PRIMO — Patient-relevant benchmarks for omics AI">
-  <meta property="og:description" content="Open collaboration to bring clarity to evaluations in bioAI, from target discovery to the clinic.">
+  <meta property="og:title" content="PRIMO — A reality check for omics AI">
+  <meta property="og:description" content="An open, patient-level benchmark for omics models in drug development.">
   <meta property="og:image" content="assets/primo-banner.png">
   <meta property="og:url" content="https://scienta-lab.github.io/primo-website/">
   <meta name="twitter:card" content="summary_large_image">
-  <title>PRIMO — Patient-relevant benchmarks for omics AI</title>
+  <title>PRIMO — A reality check for omics AI</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <aside class="announcement" role="alert" data-announcement>
-    <span>Our first benchmark was presented at the ICLR 2026 LMRL workshop. <a href="https://openreview.net/forum?id=v2SA8gHwqo">Read the publication.</a></span>
+    <span>PRIMO at ICLR 2026 LMRL: <a href="https://openreview.net/forum?id=v2SA8gHwqo">read the first benchmark paper</a>.</span>
     <button type="button" aria-label="Close announcement" data-close-announcement>×</button>
   </aside>
 
@@ -43,10 +43,10 @@
       </button>
 
       <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#publications">Publications</a>
+        <a href="#about">Updates</a>
+        <a href="#publications">Paper</a>
         <a href="#community">Community</a>
-        <a href="#get-involved">Get involved</a>
+        <a href="#get-involved">Contribute</a>
       </nav>
 
       <div class="header-tools" aria-label="Site tools and project resources">
@@ -54,103 +54,134 @@
           <svg class="theme-icon theme-icon--light" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 14.8A8.5 8.5 0 0 1 9.2 3.6 8.5 8.5 0 1 0 20.4 14.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
           <svg class="theme-icon theme-icon--dark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         </button>
-        <span class="icon-button resource-icon" aria-label="Hugging Face repository coming soon" title="Hugging Face — coming soon">HF</span>
-        <span class="icon-button resource-icon" aria-label="GitHub benchmark repository coming soon" title="GitHub benchmark — coming soon">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
+        <span class="resource-icon" title="Hugging Face — coming soon">HF</span>
+        <span class="resource-icon" title="GitHub benchmark — coming soon">GH</span>
       </div>
     </div>
   </header>
 
   <main id="main" class="homepage">
-    <div class="shell homepage-grid">
-      <section id="top" class="panel hero" aria-labelledby="hero-title">
-        <div class="hero-content">
+    <div class="shell page-stack">
+      <section id="top" class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="overline">Patient-level evaluation / open benchmark</p>
           <h1 id="hero-title">PRIMO</h1>
-          <p class="hero-lead">Open collaboration to bring clarity to evaluations in bioAI, from target discovery to the clinic.</p>
+          <p class="hero-lead">A reality check for omics AI.</p>
+          <p class="hero-body">Does a model help develop a drug, or does it only score well on another benchmark? PRIMO tests patient representations on the decisions that matter in discovery, translation and the clinic.</p>
           <div class="hero-actions">
-            <span class="pill pill--muted pill--assay" aria-disabled="true"><b>HF</b> Hugging Face <small>soon</small></span>
-            <span class="pill pill--muted" aria-disabled="true">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              GitHub <small>soon</small>
-            </span>
-            <span class="pill pill--muted pill--assay" aria-disabled="true"><b>SL</b> Slack <small>soon</small></span>
-            <a class="pill pill--primary" href="https://openreview.net/forum?id=v2SA8gHwqo">Publication</a>
-            <a class="pill pill--vital" href="mailto:karim.elkanbi@scientalab.com?subject=Join%20PRIMO">Join</a>
+            <a class="button button--primary" href="https://openreview.net/forum?id=v2SA8gHwqo">Read the paper</a>
+            <a class="text-link" href="mailto:karim.elkanbi@scientalab.com?subject=Join%20PRIMO">Work with us <span aria-hidden="true">↗</span></a>
           </div>
-          <p class="hero-support">Built by an open community of omics researchers, ML scientists, clinicians, and drug developers.</p>
+          <div class="resource-line" aria-label="Upcoming public resources">
+            <span><b>Hugging Face</b> soon</span>
+            <span><b>GitHub</b> soon</span>
+            <span><b>Slack</b> soon</span>
+          </div>
+          <p class="baseline-note"><i aria-hidden="true"></i>If a statistical baseline wins, it wins.</p>
+        </div>
+
+        <div class="reference-figure" aria-label="Omics layers crossed by a shared patient reference line">
+          <div class="reference-caption">ONE SHARED DATUM</div>
+          <div class="strata" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <i></i><b></b>
+          </div>
+          <dl>
+            <div><dt>Scope</dt><dd>Immunology &amp; inflammation</dd></div>
+            <div><dt>Unit</dt><dd>The patient</dd></div>
+            <div><dt>Rule</dt><dd>Same tasks. Same metrics.</dd></div>
+          </dl>
         </div>
       </section>
 
-      <section id="about" class="panel section-panel" aria-labelledby="updates-title">
+      <section id="about" class="section-block updates" aria-labelledby="updates-title">
         <header class="section-heading">
-          <p class="kicker">Updates</p>
+          <p class="section-index">01 / NOW</p>
           <h2 id="updates-title">Latest from PRIMO</h2>
         </header>
-        <div class="updates-grid">
-          <article id="publications" class="update-card update-card--featured update-card--signal">
-            <div class="card-meta"><time datetime="2026">ICLR 2026 · LMRL</time></div>
+
+        <div class="updates-layout">
+          <article id="publications" class="publication-feature">
+            <div class="publication-meta"><time datetime="2026">ICLR 2026</time><span>LMRL workshop</span></div>
             <h3>A Transcriptomic Benchmark for Foundation Models in Immunology and Inflammation</h3>
-            <p>Our first multitask benchmark evaluates patient representations under the realistic constraints of immunology and inflammation cohorts.</p>
-            <a href="https://openreview.net/forum?id=v2SA8gHwqo">Read the publication</a>
+            <p>The first PRIMO study tests transcriptomic representations across immunology and inflammation cohorts. It reports the tasks, cohorts, metrics and statistical baselines in full.</p>
+            <a href="https://openreview.net/forum?id=v2SA8gHwqo">Open the paper <span aria-hidden="true">↗</span></a>
           </article>
-          <article class="update-card update-card--assay">
-            <div class="card-meta"><span>COMING SOON</span></div>
-            <h3>Public benchmark and leaderboard</h3>
-            <p>The PRIMO tasks, datasets, baselines, and live leaderboard will be released on Hugging Face.</p>
-            <span class="card-status">Hugging Face</span>
-          </article>
-          <article class="update-card update-card--indigo">
-            <div class="card-meta"><span>COMING SOON</span></div>
-            <h3>Open evaluation code</h3>
-            <p>The evaluation harness, baseline implementations, and contribution workflow will be published on GitHub.</p>
-            <span class="card-status">GitHub</span>
-          </article>
+
+          <div class="release-notes">
+            <article>
+              <p class="status">COMING SOON / DATA</p>
+              <h3>Benchmark and leaderboard</h3>
+              <p>Tasks, datasets and baselines on Hugging Face. Packaging and license checks are under way.</p>
+            </article>
+            <article>
+              <p class="status">COMING SOON / CODE</p>
+              <h3>Evaluation repository</h3>
+              <p>The harness and reproducible baselines will open with the public release.</p>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section id="community" class="panel section-panel panel--assay" aria-labelledby="community-title">
-        <header class="section-heading section-heading--compact">
-          <h2 id="community-title">Community Contributors</h2>
-          <p>PRIMO is initiated by Scienta Lab and is being built as an open, community-driven benchmark. We are welcoming founding contributors from academia, biotech, pharma, and technology.</p>
-        </header>
-        <div class="affiliations-grid" role="list">
-          <a class="affiliation" role="listitem" href="https://www.scientalab.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Scienta Lab">
-            <img src="assets/scienta-lab.svg" alt="Scienta Lab" width="147" height="24" loading="lazy" decoding="async">
-          </a>
-          <a class="affiliation affiliation--open" role="listitem" href="mailto:karim.elkanbi@scientalab.com?subject=PRIMO%20founding%20partner"><span>YOUR ORGANIZATION</span><small>Founding partners welcome</small></a>
-        </div>
-      </section>
-
-      <section id="get-involved" class="panel section-panel" aria-labelledby="contribute-title">
+      <section id="community" class="section-block community" aria-labelledby="community-title">
         <header class="section-heading">
-          <p class="kicker kicker--vital">Get involved</p>
-          <h2 id="contribute-title">Contribute to PRIMO</h2>
-          <p>Bring your expertise, datasets, models, or evaluation ideas. We welcome contributions from researchers and practitioners across the drug-development ecosystem.</p>
+          <p class="section-index">02 / PEOPLE</p>
+          <h2 id="community-title">Built in public, or not worth building</h2>
         </header>
-        <div class="contribute-grid">
-          <article class="contribute-card">
-            <h3>Join the Community</h3>
-            <p>Help build consensus on how omics foundation models should be evaluated.</p>
-            <a href="mailto:karim.elkanbi@scientalab.com?subject=Join%20the%20PRIMO%20community">Become a partner</a>
-          </article>
-          <article class="contribute-card">
-            <h3>Shape the Benchmark</h3>
-            <p>Contribute tasks, patient cohorts, modalities, endpoints, or methodological review.</p>
-            <a href="mailto:karim.elkanbi@scientalab.com?subject=Contribute%20to%20the%20PRIMO%20benchmark">Propose a contribution</a>
-          </article>
-          <article class="contribute-card">
-            <h3>Benchmark a Model</h3>
-            <p>Be among the first to compare your model with peers and strong statistical baselines.</p>
-            <a href="mailto:karim.elkanbi@scientalab.com?subject=Benchmark%20a%20model%20with%20PRIMO">Register interest</a>
-          </article>
+        <div class="community-layout">
+          <div class="community-copy">
+            <p class="community-lead">Scienta Lab started PRIMO. It should not own the answer.</p>
+            <p>We want biologists, clinicians, model builders and drug developers to argue over the tasks, inspect the methods and improve what is weak.</p>
+          </div>
+          <div class="affiliations" role="list" aria-label="PRIMO contributors">
+            <a class="affiliation" role="listitem" href="https://www.scientalab.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Scienta Lab">
+              <img src="assets/scienta-lab.svg" alt="Scienta Lab" width="147" height="24" loading="lazy" decoding="async">
+              <small>Initiator</small>
+            </a>
+            <a class="affiliation affiliation--open" role="listitem" href="mailto:karim.elkanbi@scientalab.com?subject=PRIMO%20founding%20partner">
+              <span>There is room here.</span><small>Founding contributors wanted</small>
+            </a>
+          </div>
         </div>
+      </section>
+
+      <section id="get-involved" class="section-block contribute" aria-labelledby="contribute-title">
+        <header class="section-heading">
+          <p class="section-index">03 / CONTRIBUTE</p>
+          <h2 id="contribute-title">Useful ways in</h2>
+        </header>
+        <ol class="contribution-list">
+          <li>
+            <span class="number">01</span>
+            <div><h3>Review the protocol</h3><p>Find the weak assumptions. Challenge the metrics. Tell us what would fail in practice.</p></div>
+            <a href="mailto:karim.elkanbi@scientalab.com?subject=Review%20the%20PRIMO%20protocol">Review</a>
+          </li>
+          <li>
+            <span class="number">02</span>
+            <div><h3>Add a task or cohort</h3><p>Bring a disease, modality, endpoint or patient cohort that the benchmark is missing.</p></div>
+            <a href="mailto:karim.elkanbi@scientalab.com?subject=Contribute%20a%20PRIMO%20task%20or%20cohort">Propose</a>
+          </li>
+          <li>
+            <span class="number">03</span>
+            <div><h3>Test a model</h3><p>Run on the same split as everyone else and compare against the simple baselines.</p></div>
+            <a href="mailto:karim.elkanbi@scientalab.com?subject=Test%20a%20model%20with%20PRIMO">Register</a>
+          </li>
+          <li>
+            <span class="number">04</span>
+            <div><h3>Help run the community</h3><p>The Slack is not open yet. We are looking for people who will make it useful when it is.</p></div>
+            <span class="soon">SLACK / SOON</span>
+          </li>
+        </ol>
       </section>
     </div>
   </main>
 
   <footer class="site-footer">
-    <div class="shell footer-inner"><span>PRIMO</span><span aria-hidden="true">|</span><a href="mailto:karim.elkanbi@scientalab.com">Contact</a></div>
+    <div class="shell footer-inner">
+      <span>PRIMO</span>
+      <p>The patient is the unit that matters.</p>
+      <a href="mailto:karim.elkanbi@scientalab.com">Contact</a>
+    </div>
   </footer>
 </body>
 </html>

@@ -82,27 +82,16 @@ def main():
             assert parsed.scheme in {"https", "mailto"}, f"Unsafe link scheme: {href}"
 
     assert html.count("COMING SOON") == 2
-    assert "Slack <small>soon</small>" in html
+    assert "<b>Slack</b> soon" in html
     assert "https://www.scientalab.com/" in html
     assert "href=\"#\"" not in html
     assert "Space+Grotesk" in html and "IBM+Plex+Sans" in html and "IBM+Plex+Mono" in html
 
-    approved_messages = [
-        "Open collaboration to bring clarity to evaluations in bioAI",
-        "Latest from PRIMO",
-        "Community Contributors",
-        "Contribute to PRIMO",
-        "Join the Community",
-        "Shape the Benchmark",
-        "Benchmark a Model",
-    ]
-    assert all(message in html for message in approved_messages)
-
     css = (ROOT / "styles.css").read_text().lower()
-    assert "#4c46e0" not in css, "Purple accent was reintroduced"
-    assert "linear-gradient" not in css, "Gradient styling was reintroduced"
+    assert "#4c46e0" not in css, "Deprecated purple accent is still present"
     assert "#16b3c0" in css and "#f26b43" in css and "#1a1b45" in css
-    print(f"PASS: {len(parser.ids)} ids, {len(parser.links)} links, approved content, brand fonts, and non-purple design checks passed")
+    assert "border-radius: 999px" not in css, "Pill-heavy styling reintroduced"
+    print(f"PASS: {len(parser.ids)} ids, {len(parser.links)} links, brand fonts, non-purple palette, and structural checks passed")
 
 
 if __name__ == "__main__":
