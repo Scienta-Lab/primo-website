@@ -82,6 +82,7 @@ def main():
             assert parsed.scheme in {"https", "mailto"}, f"Unsafe link scheme: {href}"
 
     assert html.count("COMING SOON") == 2
+    assert html.lower().count("spotlight") == 2
     assert "Slack <small>soon</small>" in html
     assert "https://www.scientalab.com/" in html
     assert "href=\"#\"" not in html
