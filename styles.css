@@ -48,7 +48,7 @@ svg { display: block; }
 .site-header { color: var(--indigo); background: var(--surface); border-bottom: 1px solid color-mix(in srgb, var(--hairline) 50%, transparent); }
 .header-inner { min-height: 82px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 30px; }
 .brand { display: inline-flex; align-items: center; gap: 8px; font: 700 23px/1 var(--heading); letter-spacing: -.02em; text-decoration: none; }
-.brand-mark { width: 21px; height: 21px; color: var(--indigo); }
+.brand-mark { width: auto; height: 31px; padding: 2px 3px; background: #fff; border-radius: 3px; object-fit: contain; }
 .site-nav { display: flex; align-items: center; gap: 30px; }
 .site-nav a { font-size: 16px; font-weight: 500; text-decoration: none; }
 .site-nav a:hover { color: var(--signal); }

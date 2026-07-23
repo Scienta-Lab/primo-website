@@ -3,6 +3,7 @@
 
 from html.parser import HTMLParser
 from pathlib import Path
+from struct import unpack
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -47,8 +48,9 @@ def main():
         "styles.css",
         "script.js",
         "assets/primo-logo.png",
+        "assets/primo-mark.png",
         "assets/primo-banner.png",
-        "assets/favicon.svg",
+        "assets/favicon.png",
         "assets/scienta-lab.svg",
         ".github/workflows/pages.yml",
     ]
@@ -65,7 +67,7 @@ def main():
     assert {"top", "about", "publications", "community", "get-involved"}.issubset(parser.ids)
 
     for image in parser.images:
-        assert image.get("alt"), f"Image lacks alt text: {image}"
+        assert image.get("alt") or "brand-mark" in image.get("class", ""), f"Image lacks alt text: {image}"
         source = image.get("src", "")
         assert source and (ROOT / source).exists(), f"Missing image source: {source}"
         assert image.get("width") and image.get("height"), f"Image lacks dimensions: {source}"
@@ -88,13 +90,16 @@ def main():
     assert "href=\"#\"" not in html
     assert "Funnel+Display" in html and "Funnel+Sans" in html
     assert "Space+Grotesk" not in html and "IBM+Plex" not in html
+    assert 'src="assets/primo-mark.png"' in html
+    assert 'href="assets/favicon.png"' in html
+    assert '<svg class="brand-mark"' not in html
 
     css = (ROOT / "styles.css").read_text().lower()
     assert "#4c46e0" not in css and "#f26b43" not in css and "#1a1b45" not in css
     assert "#16b3c0" in css and "#080f5f" in css
-    favicon = (ROOT / "assets/favicon.svg").read_text().lower()
-    assert "#4c46e0" not in favicon and "#f26b43" not in favicon
-    assert "#080f5f" in favicon and "#16b3c0" in favicon
+    favicon = (ROOT / "assets/favicon.png").read_bytes()
+    assert favicon[:8] == b"\x89PNG\r\n\x1a\n"
+    assert unpack(">II", favicon[16:24]) == (512, 512)
     print(f"PASS: {len(parser.ids)} ids, {len(parser.links)} links, approved structure, brand fonts, and Scienta Navy trial checks passed")
 
 
