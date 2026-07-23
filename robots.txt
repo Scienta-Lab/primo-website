@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://scienta-lab.github.io/primo-website/sitemap.xml
+Sitemap: https://primomics.org/sitemap.xml

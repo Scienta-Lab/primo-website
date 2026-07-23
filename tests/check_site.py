@@ -93,6 +93,9 @@ def main():
     assert 'src="assets/primo-mark.png"' in html
     assert 'href="assets/favicon.png"' in html
     assert '<svg class="brand-mark"' not in html
+    assert '<link rel="canonical" href="https://primomics.org/">' in html
+    assert 'content="https://primomics.org/"' in html
+    assert "scienta-lab.github.io/primo-website" not in html
 
     css = (ROOT / "styles.css").read_text().lower()
     assert "#4c46e0" not in css and "#f26b43" not in css and "#1a1b45" not in css

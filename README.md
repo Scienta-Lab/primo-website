@@ -24,7 +24,7 @@ The check validates required files, internal asset references, document landmark
 
 Pushes to `main` deploy automatically to GitHub Pages through `.github/workflows/pages.yml`.
 
-Temporary project URL: <https://scienta-lab.github.io/primo-website/>
+Canonical project URL: <https://primomics.org/>
 
 ## Resources
 
