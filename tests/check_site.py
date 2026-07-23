@@ -86,7 +86,8 @@ def main():
     assert "Slack <small>soon</small>" in html
     assert "https://www.scientalab.com/" in html
     assert "href=\"#\"" not in html
-    assert "Space+Grotesk" in html and "IBM+Plex+Sans" in html and "IBM+Plex+Mono" in html
+    assert "Funnel+Display" in html and "Funnel+Sans" in html
+    assert "Space+Grotesk" not in html and "IBM+Plex" not in html
 
     css = (ROOT / "styles.css").read_text().lower()
     assert "#4c46e0" not in css and "#f26b43" not in css and "#1a1b45" not in css

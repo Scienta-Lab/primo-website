@@ -10,9 +10,9 @@
   --surface-soft: #f7fafa;
   --shadow: 0 6px 24px rgba(8, 15, 95, 0.11);
   --shell: min(1140px, calc(100% - 40px));
-  --heading: "Space Grotesk", sans-serif;
-  --body: "IBM Plex Sans", sans-serif;
-  --mono: "IBM Plex Mono", monospace;
+  --heading: "Funnel Display", sans-serif;
+  --body: "Funnel Sans", sans-serif;
+  --mono: "Funnel Sans", sans-serif;
 }
 
 html[data-theme="dark"] {
