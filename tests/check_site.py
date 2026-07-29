@@ -49,9 +49,14 @@ def main():
         "script.js",
         "assets/primo-logo.png",
         "assets/primo-mark.png",
+        "assets/primo-mark.webp",
         "assets/primo-banner.png",
         "assets/favicon.png",
         "assets/scienta-lab.svg",
+        "assets/fonts/funnel-display.woff2",
+        "assets/fonts/funnel-sans.woff2",
+        "assets/fonts/OFL-Funnel-Display.txt",
+        "assets/fonts/OFL-Funnel-Sans.txt",
         ".github/workflows/pages.yml",
     ]
     for relative in required:
@@ -88,22 +93,34 @@ def main():
     assert "Slack <small>soon</small>" in html
     assert "https://www.scientalab.com/" in html
     assert "href=\"#\"" not in html
-    assert "Funnel+Display" in html and "Funnel+Sans" in html
+    assert "fonts.googleapis.com" not in html and "fonts.gstatic.com" not in html
+    assert 'href="assets/fonts/funnel-display.woff2"' in html
+    assert 'href="assets/fonts/funnel-sans.woff2"' in html
     assert "Space+Grotesk" not in html and "IBM+Plex" not in html
-    assert 'src="assets/primo-mark.png"' in html
+    assert 'src="assets/primo-mark.webp"' in html
     assert 'href="assets/favicon.png"' in html
     assert '<svg class="brand-mark"' not in html
     assert '<link rel="canonical" href="https://primomics.org/">' in html
     assert 'content="https://primomics.org/"' in html
     assert "scienta-lab.github.io/primo-website" not in html
+    assert 'http-equiv="Content-Security-Policy"' in html
+    assert 'role="alert"' not in html
+    assert 'role="list"' not in html and 'role="listitem"' not in html
+    assert 'aria-disabled="true"' not in html
+    assert '<ul class="affiliations-grid">' in html
 
     css = (ROOT / "styles.css").read_text().lower()
     assert "#4c46e0" not in css and "#f26b43" not in css and "#1a1b45" not in css
     assert "#16b3c0" in css and "#080f5f" in css
+    assert "font-display: swap" in css
+    mark = (ROOT / "assets/primo-mark.webp").read_bytes()
+    assert mark[:4] == b"RIFF" and mark[8:12] == b"WEBP"
+    assert len(mark) < 10_000
     favicon = (ROOT / "assets/favicon.png").read_bytes()
     assert favicon[:8] == b"\x89PNG\r\n\x1a\n"
-    assert unpack(">II", favicon[16:24]) == (512, 512)
-    print(f"PASS: {len(parser.ids)} ids, {len(parser.links)} links, approved structure, brand fonts, and Scienta Navy trial checks passed")
+    assert unpack(">II", favicon[16:24]) == (64, 64)
+    assert len(favicon) < 10_000
+    print(f"PASS: {len(parser.ids)} ids, {len(parser.links)} links, approved structure, local brand fonts, optimized images, accessible semantics, and security policy checks passed")
 
 
 if __name__ == "__main__":
