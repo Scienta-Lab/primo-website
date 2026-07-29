@@ -55,8 +55,10 @@ def main():
         "assets/scienta-lab.svg",
         "assets/fonts/funnel-display.woff2",
         "assets/fonts/funnel-sans.woff2",
+        "assets/fonts/dm-mono-regular.woff2",
         "assets/fonts/OFL-Funnel-Display.txt",
         "assets/fonts/OFL-Funnel-Sans.txt",
+        "assets/fonts/OFL-DM-Mono.txt",
         ".github/workflows/pages.yml",
     ]
     for relative in required:
@@ -88,14 +90,16 @@ def main():
         else:
             assert parsed.scheme in {"https", "mailto"}, f"Unsafe link scheme: {href}"
 
-    assert html.count("COMING SOON") == 2
-    assert html.lower().count("spotlight") == 2
-    assert "Slack <small>soon</small>" in html
+    assert html.count("Coming soon") == 2
+    assert html.lower().count("spotlight") == 1
+    assert html.count('<span class="resource-state">soon</span>') == 3
+    assert ">Slack<" in html
     assert "https://www.scientalab.com/" in html
     assert "href=\"#\"" not in html
     assert "fonts.googleapis.com" not in html and "fonts.gstatic.com" not in html
     assert 'href="assets/fonts/funnel-display.woff2"' in html
     assert 'href="assets/fonts/funnel-sans.woff2"' in html
+    assert 'href="assets/fonts/dm-mono-regular.woff2"' in html
     assert "Space+Grotesk" not in html and "IBM+Plex" not in html
     assert 'src="assets/primo-mark.webp"' in html
     assert 'href="assets/favicon.png"' in html
@@ -108,10 +112,13 @@ def main():
     assert 'role="list"' not in html and 'role="listitem"' not in html
     assert 'aria-disabled="true"' not in html
     assert '<ul class="affiliations-grid">' in html
+    # One considered light theme, no dismissible banner (2c "The index" redesign).
+    assert "data-theme" not in html and "data-announcement" not in html
 
     css = (ROOT / "styles.css").read_text().lower()
     assert "#4c46e0" not in css and "#f26b43" not in css and "#1a1b45" not in css
-    assert "#16b3c0" in css and "#080f5f" in css
+    assert "#16b3c0" not in css, "teal was dropped from the palette"
+    assert "#080f5f" in css and "#fd7a54" in css and "#191919" in css
     assert "font-display: swap" in css
     mark = (ROOT / "assets/primo-mark.webp").read_bytes()
     assert mark[:4] == b"RIFF" and mark[8:12] == b"WEBP"
