@@ -53,6 +53,7 @@ def main():
         "assets/primo-banner.png",
         "assets/favicon.png",
         "assets/scienta-lab.svg",
+        "assets/hugging-face.svg",
         "assets/fonts/funnel-display.woff2",
         "assets/fonts/funnel-sans.woff2",
         "assets/fonts/dm-mono-regular.woff2",
@@ -95,6 +96,9 @@ def main():
     assert html.count('<span class="resource-state">soon</span>') == 3
     assert ">Slack<" in html
     assert "https://www.scientalab.com/" in html
+    assert "https://huggingface.co/" in html
+    assert 'src="assets/hugging-face.svg"' in html
+    assert 'alt="Hugging Face"' in html
     assert "href=\"#\"" not in html
     assert "fonts.googleapis.com" not in html and "fonts.gstatic.com" not in html
     assert 'href="assets/fonts/funnel-display.woff2"' in html
