@@ -129,6 +129,7 @@ p { margin: 0; }
 .affiliations-grid { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0; padding: 0; list-style: none; }
 .affiliation { height: 64px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding-inline: 26px; border: 1px solid var(--band-marine-line); background: var(--paper); color: var(--navy); text-align: center; text-decoration: none; transition: border-color .15s ease; }
 .affiliation img { width: auto; max-width: 132px; height: auto; max-height: 22px; object-fit: contain; }
+.affiliation img.affiliation-logo--hugging-face { max-height: 35px; }
 .affiliation:hover { border-color: var(--navy); }
 .affiliation--open { border-style: dashed; border-color: var(--band-marine-dash); background: transparent; }
 .affiliation--open span { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
