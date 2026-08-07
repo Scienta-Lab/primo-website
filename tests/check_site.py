@@ -91,9 +91,12 @@ def main():
         else:
             assert parsed.scheme in {"https", "mailto"}, f"Unsafe link scheme: {href}"
 
-    assert html.count("Coming soon") == 2
+    assert html.count("Coming soon") == 1
     assert html.lower().count("spotlight") == 1
-    assert html.count('<span class="resource-state">soon</span>') == 3
+    assert html.count('<span class="resource-state">soon</span>') == 2
+    assert html.count("https://huggingface.co/spaces/ScientaLab/primo-eval") == 2
+    assert '<span class="resource-name">Hugging Face Space</span>' in html
+    assert "Evaluate a model" in html
     assert ">Slack<" in html
     assert "https://www.scientalab.com/" in html
     assert "https://huggingface.co/" in html
