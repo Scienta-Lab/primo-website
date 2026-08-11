@@ -72,7 +72,15 @@ def main():
 
     assert {"header", "main", "footer", "nav"}.issubset(parser.landmarks)
     assert "PRIMO" in "".join(parser.title)
-    assert {"top", "about", "publications", "community", "get-involved"}.issubset(parser.ids)
+    assert {"top", "about", "updates", "community", "get-involved"}.issubset(parser.ids)
+
+    nav_start = html.index('<nav id="site-nav"')
+    nav_end = html.index("</nav>", nav_start)
+    navigation = html[nav_start:nav_end]
+    assert navigation.index('href="#community">Community</a>') < navigation.index(
+        'href="#updates">Updates</a>'
+    )
+    assert 'href="#publications">Publications</a>' not in navigation
 
     for image in parser.images:
         assert image.get("alt") or "brand-mark" in image.get("class", ""), f"Image lacks alt text: {image}"
