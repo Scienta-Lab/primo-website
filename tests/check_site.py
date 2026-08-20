@@ -102,7 +102,7 @@ def main():
     assert html.count("Coming soon") == 1
     assert html.lower().count("spotlight") == 1
     assert html.count('<span class="resource-state">soon</span>') == 2
-    assert html.count("https://huggingface.co/spaces/ScientaLab/primo-eval") == 2
+    assert html.count("https://primomics-primo-eval.hf.space/?tab=boards") == 2
     assert '<span class="resource-name">Hugging Face Space</span>' in html
     assert "Evaluate a model" in html
     assert ">Slack<" in html
