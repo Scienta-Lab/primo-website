@@ -99,13 +99,16 @@ def main():
         else:
             assert parsed.scheme in {"https", "mailto"}, f"Unsafe link scheme: {href}"
 
-    assert html.count("Coming soon") == 1
+    assert "Coming soon" not in html
     assert html.lower().count("spotlight") == 1
-    assert html.count('<span class="resource-state">soon</span>') == 2
+    assert '<span class="resource-state">soon</span>' not in html
     assert html.count("https://primomics-primo-eval.hf.space/?tab=boards") == 2
+    assert html.count("https://github.com/PRIMOmics/primo-eval") == 2
+    assert html.count("https://discord.gg/TZK6eWda6") == 1
     assert '<span class="resource-name">Hugging Face Space</span>' in html
     assert "Evaluate a model" in html
-    assert ">Slack<" in html
+    assert ">Discord<" in html
+    assert ">Slack<" not in html
     assert "https://www.scientalab.com/" in html
     assert "https://huggingface.co/" in html
     assert 'src="assets/hugging-face.svg"' in html
