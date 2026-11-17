@@ -32,6 +32,10 @@ Canonical project URL: <https://primomics.org/>
 - GitHub benchmark repository: coming soon
 - Hugging Face benchmark and leaderboard: coming soon
 
+## Contributor logo sources
+
+- `assets/orakl-oncology.svg`: official wordmark extracted from the inline SVG on [Orakl Oncology's website](https://www.orakl-oncology.com/). Original paths and proportions are preserved. The logo remains the property of Orakl Oncology.
+
 ## Content and licensing
 
 Copyright © Scienta Lab and PRIMO contributors. Licensing for website content, brand assets, and source code will be finalized with the PRIMO governance and repository transfer. No license is granted by default.
