@@ -113,6 +113,13 @@ def main():
     assert "https://huggingface.co/" in html
     assert 'src="assets/hugging-face.svg"' in html
     assert 'alt="Hugging Face"' in html
+    assert "https://www.orakl-oncology.com/" in parser.links
+    orakl_images = [image for image in parser.images if image.get("alt") == "Orakl Oncology"]
+    assert len(orakl_images) == 1
+    assert orakl_images[0]["src"] == "assets/orakl-oncology.svg"
+    assert 'aria-label="Visit Orakl Oncology"' in html
+    assert 'rel="noopener noreferrer" aria-label="Visit Orakl Oncology"' in html
+    assert 'class="affiliation affiliation--open"' in html
     assert "href=\"#\"" not in html
     assert "fonts.googleapis.com" not in html and "fonts.gstatic.com" not in html
     assert 'href="assets/fonts/funnel-display.woff2"' in html
